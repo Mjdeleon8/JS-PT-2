@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Performance Task 2</title>
+    <style>
+      body {
+        background-color: #35374b;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+
+      #container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #50727b;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        color: white;
+      }
+
+      .text {
+        margin: 0;
+        padding: 5px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      input {
+        padding: 8px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        padding: 10px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .def {
+        text-align: center;
+        font-size: 40px;
+        font-weight: 900;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="def">Output</h1>
+    <div id="container"></div>
+
+    <script>
+      let userArray = [];
+
+      for (i = 0; i < 10; i++) {
+        let n = "";
+        if (i == 1) {
+          n = "nd";
+        } else if (i == 2) {
+          n = "rd";
+        } else if (i == 0) {
+          n = "st";
+        } else {
+          n = "th";
+        }
+
+        let userInput = parseInt(prompt(`Enter ${i + 1}${n} Number`));
+
+        if (!isNaN(userInput)) {
+          if (userInput % 2 === 0) {
+            userArray.push(userInput);
+            container.innerHTML +=
+              "<p class='text'>" + userInput + " EVEN number" + "</p>";
+          } else {
+            container.innerHTML +=
+              "<p class='text'>" + userInput + " ODD number" + "</p>";
+          }
+        } else {
+          container.innerHTML +=
+            "<p class='text'>" + "Input type string, invalid" + "</p>";
+        }
+      }
+
+      let overAll = userArray.reduce((x, y) => x + y, 0);
+      container.innerHTML += "<p class='text'>" + "Sum is: " + overAll + "</p>";
+      container.innerHTML += "<p class='text'>" + userArray + "</p>";
+    </script>
+  </body>
+</html>
